@@ -17,9 +17,6 @@
   <div class="flow-orb o3"></div>
   <div class="cursor-glow" id="cursorGlow"></div>
 
-  <!-- 导航遮罩(移动端) -->
-  <div class="nav-overlay" id="navOverlay"></div>
-
   <!-- 顶部导航(固定吸附) -->
   <header class="nav-header" id="navHeader">
     <div class="nav-inner">
@@ -31,10 +28,6 @@
         <a href="#awards">竞赛获奖</a>
         <a href="#contact">联系方式</a>
       </nav>
-      <!-- 汉堡菜单 -->
-      <button class="hamburger" id="hamburger" aria-label="菜单">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </header>
 
@@ -647,42 +640,6 @@
       });
     })();
 
-    // ==================== 移动端汉堡菜单 ====================
-    (function ()
-    {
-      const btn = document.getElementById('hamburger');
-      const nav = document.getElementById('navbar');
-      const overlay = document.getElementById('navOverlay');
-
-      function closeMenu ()
-      {
-        btn.classList.remove('open');
-        nav.classList.remove('open');
-        overlay.classList.remove('show');
-        document.body.style.overflow = '';
-      }
-
-      btn.addEventListener('click', () =>
-      {
-        const isOpen = nav.classList.contains('open');
-        if (isOpen) {
-          closeMenu();
-        } else {
-          btn.classList.add('open');
-          nav.classList.add('open');
-          overlay.classList.add('show');
-          document.body.style.overflow = 'hidden';
-        }
-      });
-
-      overlay.addEventListener('click', closeMenu);
-
-      // 在 touchstart 阶段提前关闭菜单，click 事件由浏览器原生处理跳转
-      nav.querySelectorAll('a').forEach(a =>
-      {
-        a.addEventListener('touchstart', closeMenu, { passive: true });
-      });
-    })();
   </script>
 
 </body>
