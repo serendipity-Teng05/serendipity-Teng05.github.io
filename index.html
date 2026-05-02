@@ -560,17 +560,24 @@
     }
   }
 
-  // 点击导航链接：立即高亮，不等滚动完成
+  // 点击导航链接：立即高亮，并短暂锁定防止滚动中途被覆盖
+  let clickLock = 0;
   navLinks.forEach(a => {
     a.addEventListener('click', () => {
       navLinks.forEach(l => l.classList.remove('active'));
       a.classList.add('active');
+      clickLock = Date.now();
     });
   });
 
+  function updateActiveSafe() {
+    if (Date.now() - clickLock < 800) return; // 点击后 800ms 内跳过 scroll 更新
+    updateActive();
+  }
+
   // 初次执行 + 滚动监听
   updateActive();
-  window.addEventListener('scroll', updateActive, { passive: true });
+  window.addEventListener('scroll', updateActiveSafe, { passive: true });
 })();
 
 // ==================== 回到顶部 ====================
