@@ -99,9 +99,29 @@ body {
   justify-content: flex-end;
   align-items: center;
   gap: 36px;
-  padding: 24px 0;
+  padding: 16px 0;
   font-size: 14px;
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 90;
+  max-width: 920px;
+  width: calc(100% - 48px);
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: background 0.3s, box-shadow 0.3s, padding 0.3s;
+  border-radius: 0 0 16px 16px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.nav.sticky {
+  background: rgba(7, 11, 20, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  padding: 12px 24px;
 }
 .nav a {
   color: var(--text-muted);
@@ -153,7 +173,10 @@ body {
   .nav {
     position: fixed;
     top: 0; right: -100%;
+    left: auto;
+    transform: none;
     width: 240px;
+    max-width: 240px;
     height: 100vh;
     flex-direction: column;
     justify-content: center;
@@ -163,10 +186,17 @@ body {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-left: 1px solid var(--border);
+    border-radius: 0;
     transition: right 0.35s ease;
     z-index: 99;
-    padding: 0;
+    padding: 0 !important;
     font-size: 16px;
+    box-shadow: none;
+  }
+  .nav.sticky {
+    background: rgba(7, 11, 20, 0.95);
+    box-shadow: none;
+    border-bottom: none;
   }
   .nav.open { right: 0; }
   .nav a { padding: 8px 0; }
@@ -385,7 +415,6 @@ body {
 @media (max-width: 600px) {
   .skill-bars { grid-template-columns: 1fr; }
 }
-.skill-bar-item { }
 .skill-bar-item .skill-info {
   display: flex;
   justify-content: space-between;

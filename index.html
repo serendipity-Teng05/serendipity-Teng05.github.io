@@ -519,8 +519,9 @@
   }
 })();
 
-// ==================== 滚动导航高亮 ====================
+// ==================== 滚动导航高亮 + 固定吸附 ====================
 (function() {
+  const nav = document.getElementById('navbar');
   const sections = document.querySelectorAll('section[id], .card[id]');
   const navLinks = document.querySelectorAll('.nav a');
 
@@ -534,6 +535,14 @@
     navLinks.forEach(a => {
       a.classList.toggle('active', a.getAttribute('href') === '#' + current);
     });
+
+    // 固定导航：滑过 hero 后出现背景
+    const hero = document.getElementById('hero');
+    if (hero && window.scrollY > hero.offsetHeight * 0.6) {
+      nav.classList.add('sticky');
+    } else {
+      nav.classList.remove('sticky');
+    }
   }
 
   window.addEventListener('scroll', updateActive, { passive: true });
