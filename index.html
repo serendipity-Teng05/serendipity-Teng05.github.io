@@ -524,35 +524,44 @@
 
 // ==================== 滚动导航高亮 + 固定吸附 ====================
 (function() {
-  const nav = document.getElementById('navbar');
-  const sections = document.querySelectorAll('section[id], .card[id]');
+  const navHeader = document.getElementById('navHeader');
   const navLinks = document.querySelectorAll('.nav a');
 
-  function updateActive() {
-    let current = '';
+  // 只收集导航中有对应锚点的 section/card
+  const linkIds = Array.from(navLinks).map(a => a.getAttribute('href').slice(1));
+  const sections = linkIds
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
 
-    sections.forEach(sec => {
-      const rect = sec.getBoundingClientRect();
-      // 元素顶部越过导航栏下方 80px 即视为当前区域
-      if (rect.top <= 100) {
-        current = sec.getAttribute('id');
+  const NAV_OFFSET = 80;
+
+  function updateActive() {
+    const scrollTop = window.scrollY;
+
+    // --- 导航高亮：找到最后一个顶部已越过阈值线 ---
+    let current = linkIds[0] || '';
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const sec = sections[i];
+      if (sec && sec.getBoundingClientRect().top <= NAV_OFFSET + 30) {
+        current = linkIds[i];
+        break;
       }
-    });
+    }
 
     navLinks.forEach(a => {
       a.classList.toggle('active', a.getAttribute('href') === '#' + current);
     });
 
-    // 固定导航：滑过 hero 后出现背景
-    const hero = document.getElementById('hero');
-    const navHeader = document.getElementById('navHeader');
-    if (hero && window.scrollY > hero.offsetHeight * 0.6) {
+    // --- 固定吸附背景：滚过 200px 后显示毛玻璃 ---
+    if (scrollTop > 200) {
       navHeader.classList.add('sticky');
     } else {
       navHeader.classList.remove('sticky');
     }
   }
 
+  // 初次执行 + 滚动监听
+  updateActive();
   window.addEventListener('scroll', updateActive, { passive: true });
 })();
 
