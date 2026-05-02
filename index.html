@@ -18,22 +18,25 @@
 <!-- 导航遮罩(移动端) -->
 <div class="nav-overlay" id="navOverlay"></div>
 
+<!-- 顶部导航(固定吸附) -->
+<header class="nav-header" id="navHeader">
+  <div class="nav-inner">
+    <nav class="nav reveal" id="navbar">
+      <a href="#about">关于我</a>
+      <a href="#research">研究方向</a>
+      <a href="#skills">技术能力</a>
+      <a href="#projects">项目经历</a>
+      <a href="#awards">竞赛获奖</a>
+      <a href="#contact">联系方式</a>
+    </nav>
+    <!-- 汉堡菜单 -->
+    <button class="hamburger" id="hamburger" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
 <div class="container">
-
-  <!-- 导航 -->
-  <nav class="nav reveal" id="navbar">
-    <a href="#about">关于我</a>
-    <a href="#research">研究方向</a>
-    <a href="#skills">技术能力</a>
-    <a href="#projects">项目经历</a>
-    <a href="#awards">竞赛获奖</a>
-    <a href="#contact">联系方式</a>
-  </nav>
-
-  <!-- 汉堡菜单 -->
-  <button class="hamburger" id="hamburger" aria-label="菜单">
-    <span></span><span></span><span></span>
-  </button>
 
   <!-- Hero -->
   <section class="hero reveal" id="hero">
@@ -542,10 +545,11 @@
 
     // 固定导航：滑过 hero 后出现背景
     const hero = document.getElementById('hero');
+    const navHeader = document.getElementById('navHeader');
     if (hero && window.scrollY > hero.offsetHeight * 0.6) {
-      nav.classList.add('sticky');
+      navHeader.classList.add('sticky');
     } else {
-      nav.classList.remove('sticky');
+      navHeader.classList.remove('sticky');
     }
   }
 
