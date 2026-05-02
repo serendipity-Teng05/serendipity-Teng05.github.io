@@ -677,24 +677,18 @@
 
       overlay.addEventListener('click', closeMenu);
 
-      // 点击导航链接：关闭菜单 + 双RAF确保DOM恢复后再滚动
+      // 点击导航链接：先关菜单恢复overflow，再用location.hash触发原生滚动
       nav.querySelectorAll('a').forEach(a =>
       {
         a.addEventListener('click', (e) =>
         {
           e.preventDefault();
-          const id = a.getAttribute('href').slice(1);
-          const target = document.getElementById(id);
+          const hash = a.getAttribute('href');
           closeMenu();
-          if (target) {
-            // 双 requestAnimationFrame 确保 overflow 恢复、布局重绘完成
-            requestAnimationFrame(() => {
-              requestAnimationFrame(() => {
-                const top = target.getBoundingClientRect().top + window.pageYOffset - 70;
-                window.scrollTo({ top, behavior: 'smooth' });
-              });
-            });
-          }
+          // 短暂延迟确保 overflow 恢复后再跳转
+          setTimeout(() => {
+            window.location.hash = hash.slice(1);
+          }, 150);
         });
       });
     })();
