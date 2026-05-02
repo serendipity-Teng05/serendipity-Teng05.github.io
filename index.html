@@ -1,641 +1,689 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>邓才增 · 个人主页</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>邓才增 · 个人主页</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<canvas id="particle-canvas"></canvas>
+  <canvas id="particle-canvas"></canvas>
 
-<div class="flow-orb o1"></div>
-<div class="flow-orb o2"></div>
-<div class="flow-orb o3"></div>
-<div class="cursor-glow" id="cursorGlow"></div>
+  <div class="flow-orb o1"></div>
+  <div class="flow-orb o2"></div>
+  <div class="flow-orb o3"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
 
-<!-- 导航遮罩(移动端) -->
-<div class="nav-overlay" id="navOverlay"></div>
+  <!-- 导航遮罩(移动端) -->
+  <div class="nav-overlay" id="navOverlay"></div>
 
-<!-- 顶部导航(固定吸附) -->
-<header class="nav-header" id="navHeader">
-  <div class="nav-inner">
-    <nav class="nav reveal" id="navbar">
-      <a href="#about">关于我</a>
-      <a href="#research">研究方向</a>
-      <a href="#skills">技术能力</a>
-      <a href="#projects">项目经历</a>
-      <a href="#awards">竞赛获奖</a>
-      <a href="#contact">联系方式</a>
-    </nav>
-    <!-- 汉堡菜单 -->
-    <button class="hamburger" id="hamburger" aria-label="菜单">
-      <span></span><span></span><span></span>
-    </button>
+  <!-- 顶部导航(固定吸附) -->
+  <header class="nav-header" id="navHeader">
+    <div class="nav-inner">
+      <nav class="nav reveal" id="navbar">
+        <a href="#about">关于我</a>
+        <a href="#research">研究方向</a>
+        <a href="#skills">技术能力</a>
+        <a href="#projects">项目经历</a>
+        <a href="#awards">竞赛获奖</a>
+        <a href="#contact">联系方式</a>
+      </nav>
+      <!-- 汉堡菜单 -->
+      <button class="hamburger" id="hamburger" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- Hero -->
+    <section class="hero reveal" id="hero">
+      <div class="avatar"><img src="个人简介头像.jpg" alt="邓才增"></div>
+      <h1>邓才增</h1>
+      <p class="tagline">湘潭理工学院 · 计算机科学与技术 · 2026 届本科</p>
+      <p class="admission-line">长沙理工大学 2026 级计算机技术硕士研究生</p>
+      <p class="location">湖南 · 长沙</p>
+    </section>
+
+    <!-- 自我介绍 -->
+    <section class="card reveal" id="about">
+      <h2>自我介绍</h2>
+      <p class="subtitle">About Me</p>
+      <p class="intro-text">
+        我是湘潭理工学院计算机科学与技术专业 2026 届毕业生，<strong>专业综合排名前 2%（6/285）</strong>，
+        平均成绩 <strong>86.75 分</strong>，GPA <strong>3.56/4.0</strong>。
+        具备扎实的计算机基础，熟练掌握 <strong>Java、C、Python、JavaScript</strong> 等编程语言，
+        在 Web 全栈开发、嵌入式/IoT 系统方面有实际项目经验。
+      </p>
+      <p class="intro-text" style="margin-top:12px;">
+        我热爱技术，具备<strong>独立文献调研、系统设计与代码实现</strong>的完整科研能力。
+        <span class="admission">长沙理工大学 2026 级计算机技术专业硕士研究生</span>，
+        即将在研究生阶段继续深耕计算机领域，将理论创新与实际应用相结合。
+      </p>
+    </section>
+
+    <!-- 研究方向 -->
+    <section class="card reveal" id="research">
+      <h2>研究方向</h2>
+      <p class="subtitle">Research Interests</p>
+      <div class="research-grid">
+        <div class="research-item">
+          <span class="r-icon">🔌</span>
+          <span class="r-name">嵌入式开发</span>
+          <span class="r-desc">ARM / IoT / 实时系统</span>
+        </div>
+        <div class="research-item">
+          <span class="r-icon">🤖</span>
+          <span class="r-name">人工智能</span>
+          <span class="r-desc">机器学习 / 深度学习</span>
+        </div>
+        <div class="research-item">
+          <span class="r-icon">👁</span>
+          <span class="r-name">计算机视觉</span>
+          <span class="r-desc">图像识别 / 目标检测</span>
+        </div>
+        <div class="research-item">
+          <span class="r-icon">🧠</span>
+          <span class="r-name">AI大模型开发</span>
+          <span class="r-desc">LLM / 模型微调与应用</span>
+        </div>
+        <div class="research-item">
+          <span class="r-icon">💧</span>
+          <span class="r-name">智慧水利交叉研究</span>
+          <span class="r-desc">计算机 + 水利工程交叉</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 教育背景 -->
+    <section class="card reveal">
+      <h2>教育背景</h2>
+      <p class="subtitle">Education</p>
+      <div class="stats">
+        <div class="stat-item">
+          <div class="num"><span class="count-up" data-target="2">0</span>%</div>
+          <div class="label">专业排名（6/285）</div>
+        </div>
+        <div class="stat-item">
+          <div class="num"><span class="count-up" data-target="1">0</span>%</div>
+          <div class="label">综测排名（3/285）</div>
+        </div>
+        <div class="stat-item">
+          <div class="num"><span class="count-up" data-target="86.75" data-decimals="2">0</span></div>
+          <div class="label">平均成绩</div>
+        </div>
+        <div class="stat-item">
+          <div class="num"><span class="count-up" data-target="3.56" data-decimals="2">0</span></div>
+          <div class="label">GPA / 4.0</div>
+        </div>
+      </div>
+      <p class="intro-text">
+        核心课程：数据结构、C 语言程序设计、计算机组成原理、操作系统、计算机网络、数据库原理、
+        Java SSM 开发、Python 基础、Linux 操作系统、高等数学、线性代数、概率论等（专业课成绩优秀）
+      </p>
+    </section>
+
+    <!-- 初试成绩 -->
+    <section class="card reveal">
+      <h2>初试成绩</h2>
+      <p class="subtitle">Postgraduate Entrance Exam</p>
+      <div class="exam-grid">
+        <div class="exam-item">
+          <div class="score"><span class="count-up" data-target="303">0</span></div>
+          <div class="exam-label">总分</div>
+        </div>
+        <div class="exam-item">
+          <div class="score"><span class="count-up" data-target="108">0</span></div>
+          <div class="exam-label">数学</div>
+        </div>
+        <div class="exam-item">
+          <div class="score"><span class="count-up" data-target="74">0</span></div>
+          <div class="exam-label">英语</div>
+        </div>
+        <div class="exam-item">
+          <div class="score"><span class="count-up" data-target="62">0</span></div>
+          <div class="exam-label">政治</div>
+        </div>
+        <div class="exam-item">
+          <div class="score"><span class="count-up" data-target="59">0</span></div>
+          <div class="exam-label">计算机基础</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 技术能力 -->
+    <section class="card reveal" id="skills">
+      <h2>技术能力</h2>
+      <p class="subtitle">Skills & Proficiency</p>
+      <div class="skill-bars">
+        <div class="skill-bar-item">
+          <div class="skill-info"><span class="skill-name">Java / SSM</span><span class="skill-pct">85%</span></div>
+          <div class="bar-track">
+            <div class="bar-fill" data-width="85"></div>
+          </div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-info"><span class="skill-name">Spring Boot</span><span class="skill-pct">80%</span></div>
+          <div class="bar-track">
+            <div class="bar-fill" data-width="80"></div>
+          </div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-info"><span class="skill-name">数据结构与算法</span><span class="skill-pct">85%</span></div>
+          <div class="bar-track">
+            <div class="bar-fill" data-width="85"></div>
+          </div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-info"><span class="skill-name">MySQL 数据库</span><span class="skill-pct">82%</span></div>
+          <div class="bar-track">
+            <div class="bar-fill" data-width="82"></div>
+          </div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-info"><span class="skill-name">C 语言</span><span class="skill-pct">80%</span></div>
+          <div class="bar-track">
+            <div class="bar-fill" data-width="80"></div>
+          </div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-info"><span class="skill-name">JavaScript</span><span class="skill-pct">75%</span></div>
+          <div class="bar-track">
+            <div class="bar-fill" data-width="75"></div>
+          </div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-info"><span class="skill-name">Python</span><span class="skill-pct">70%</span></div>
+          <div class="bar-track">
+            <div class="bar-fill" data-width="70"></div>
+          </div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-info"><span class="skill-name">Linux</span><span class="skill-pct">68%</span></div>
+          <div class="bar-track">
+            <div class="bar-fill" data-width="68"></div>
+          </div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-info"><span class="skill-name">嵌入式 / IoT</span><span class="skill-pct">65%</span></div>
+          <div class="bar-track">
+            <div class="bar-fill" data-width="65"></div>
+          </div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-info"><span class="skill-name">MATLAB</span><span class="skill-pct">60%</span></div>
+          <div class="bar-track">
+            <div class="bar-fill" data-width="60"></div>
+          </div>
+        </div>
+      </div>
+      <!-- 其他技能标签 -->
+      <div class="tags" style="margin-top:24px;">
+        <span class="tag">RESTful API</span>
+        <span class="tag">MQTT</span>
+        <span class="tag">Git / GitHub</span>
+        <span class="tag">SPSS</span>
+        <span class="tag">微信小程序</span>
+        <span class="tag">ARM 平台</span>
+      </div>
+    </section>
+
+    <!-- 项目经历 -->
+    <section class="card reveal" id="projects">
+      <h2>科研与项目经历</h2>
+      <p class="subtitle">Projects</p>
+
+      <div class="timeline-item">
+        <div class="year">2025.10 — 2026.02</div>
+        <h4>基于 Spring Boot 的水果商城管理系统（毕业设计 · 全栈独立完成）</h4>
+        <p>针对传统水果零售痛点，设计支持商品全生命周期管理、高并发订单处理与角色权限控制的 Web 系统</p>
+        <p class="detail">
+          独立完成需求分析、数据库设计（MySQL + 索引优化）、后端开发（Spring Boot + RESTful API）、
+          前端实现；引入 RBAC 权限模型，采用乐观锁/分布式锁保障高并发一致性；实现商品、订单、人员
+          三大核心模块完整闭环
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">2025.10</div>
+        <h4>基于 ARM 平台的智能家居系统开发（团队核心成员）</h4>
+        <p>面向物联网场景的嵌入式智能家居控制系统，支持语音交互与多设备联动</p>
+        <p class="detail">
+          负责语音指令识别模块（开源语音识别接口 + 关键词匹配优化）、设备联动控制逻辑设计、
+          系统扩展接口开发（REST API + MQTT 协议）；实现语音到设备的端到端控制流程
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">2024.06</div>
+        <h4>"智润湘农"——基于 AIoT 技术的数字农业系统（省级立项 · 前端负责人）</h4>
+        <p>针对农业病虫害监测与设备远程控制需求，开发 AIoT + 小程序一体化平台</p>
+        <p class="detail">
+          负责微信小程序前端开发，实现病害虫图像采集上传、实时环境参数显示、设备远程控制；
+          项目获<strong>湘潭市青年大创比赛金奖（省级）</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- 竞赛获奖 -->
+    <section class="card reveal" id="awards">
+      <h2>学科竞赛与荣誉</h2>
+      <p class="subtitle">Awards & Honors · 悬停卡片查看详情</p>
+      <div class="award-grid-3d">
+        <div class="award-card gold">
+          <div class="award-inner">
+            <div class="award-front">
+              <span class="award-icon">🥇</span>
+              <span class="award-name">湘潭市青年大创比赛</span>
+              <span class="award-level">省级金奖</span>
+            </div>
+            <div class="award-back">
+              <span class="award-year">2024</span>
+              <span class="award-detail">"智润湘农" AIoT 数字农业项目<br>省级立项 · 前端负责人</span>
+            </div>
+          </div>
+        </div>
+        <div class="award-card gold">
+          <div class="award-inner">
+            <div class="award-front">
+              <span class="award-icon">🥇</span>
+              <span class="award-name">全国大学生英语竞赛</span>
+              <span class="award-level">省级一等奖</span>
+            </div>
+            <div class="award-back">
+              <span class="award-year">2023</span>
+              <span class="award-detail">全国大学生英语竞赛<br>省级一等奖</span>
+            </div>
+          </div>
+        </div>
+        <div class="award-card bronze">
+          <div class="award-inner">
+            <div class="award-front">
+              <span class="award-icon">🥉</span>
+              <span class="award-name">湖南省大学生数学竞赛</span>
+              <span class="award-level">省级三等奖</span>
+            </div>
+            <div class="award-back">
+              <span class="award-year">2025</span>
+              <span class="award-detail">湖南省大学生数学竞赛<br>省级三等奖</span>
+            </div>
+          </div>
+        </div>
+        <div class="award-card silver">
+          <div class="award-inner">
+            <div class="award-front">
+              <span class="award-icon">🥈</span>
+              <span class="award-name">湘潭理工学院数学竞赛</span>
+              <span class="award-level">校级二等奖 ×2</span>
+            </div>
+            <div class="award-back">
+              <span class="award-year">2023 · 2024</span>
+              <span class="award-detail">连续两年获得<br>校级数学竞赛二等奖</span>
+            </div>
+          </div>
+        </div>
+        <div class="award-card silver">
+          <div class="award-inner">
+            <div class="award-front">
+              <span class="award-icon">🥈</span>
+              <span class="award-name">数学建模校赛</span>
+              <span class="award-level">校级二等奖</span>
+            </div>
+            <div class="award-back">
+              <span class="award-year">2024</span>
+              <span class="award-detail">数学建模校赛<br>二等奖</span>
+            </div>
+          </div>
+        </div>
+        <div class="award-card gold">
+          <div class="award-inner">
+            <div class="award-front">
+              <span class="award-icon">🥇</span>
+              <span class="award-name">"互联网+" 创新创业大赛</span>
+              <span class="award-level">校级一等奖</span>
+            </div>
+            <div class="award-back">
+              <span class="award-year">2024</span>
+              <span class="award-detail">"互联网+" 大学生创新创业大赛<br>高教主赛道 校级一等奖</span>
+            </div>
+          </div>
+        </div>
+        <div class="award-card bronze">
+          <div class="award-inner">
+            <div class="award-front">
+              <span class="award-icon">🥉</span>
+              <span class="award-name">外研社国才杯</span>
+              <span class="award-level">校级铜奖</span>
+            </div>
+            <div class="award-back">
+              <span class="award-year">2024</span>
+              <span class="award-detail">英语综合/演讲赛项<br>校级铜奖</span>
+            </div>
+          </div>
+        </div>
+        <div class="award-card silver">
+          <div class="award-inner">
+            <div class="award-front">
+              <span class="award-icon">🏅</span>
+              <span class="award-name">优秀学生干部 · 优秀共青团员</span>
+              <span class="award-level">校级荣誉</span>
+            </div>
+            <div class="award-back">
+              <span class="award-year">2023 - 2024</span>
+              <span class="award-detail">科创部副部长期间<br>获多项校级荣誉称号</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 校园经历 -->
+    <section class="card reveal">
+      <h2>校园经历</h2>
+      <p class="subtitle">Campus Activities</p>
+      <div class="timeline-item">
+        <div class="year">2023.09 — 2024.09</div>
+        <h4>数字科技学院科创部 · 副部长</h4>
+        <p>主导策划多场学科竞赛与科创活动，负责统筹协调、资源整合与活动执行，提升同学科研参与度</p>
+      </div>
+    </section>
+
+    <!-- 考研经验 -->
+    <section class="card reveal">
+      <h2>考研经验</h2>
+      <p class="subtitle">408 Exam & Interview Experience</p>
+      <p class="intro-text">
+        408 计算机考研总分 <strong>303</strong>，已上岸长沙理工大学计算机技术硕士。
+        备考期间系统整理了 408 四门专业课复习策略、时间线规划及复试面试经验，希望帮助到同样在路上的同学。
+      </p>
+      <a class="exp-link" href="#" target="_blank">
+        阅读全文 →
+      </a>
+    </section>
+
+    <!-- 联系方式 -->
+    <section class="card reveal" id="contact">
+      <h2>联系方式</h2>
+      <p class="subtitle">Contact</p>
+      <div class="contact-grid">
+        <div class="qr-box">
+          <div class="qr-wrapper">
+            <img src="微信二维码.png" alt="微信二维码" width="144" height="144">
+          </div>
+          <span>微信扫一扫添加好友</span>
+        </div>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:334478121@qq.com">
+            <span class="icon icon-email">✉</span>
+            <div>
+              <div style="font-size:14px;font-weight:600;">电子邮箱</div>
+              <span class="info">334478121@qq.com</span>
+            </div>
+          </a>
+          <a class="contact-link" href="tel:19318255405">
+            <span class="icon icon-phone">📞</span>
+            <div>
+              <div style="font-size:14px;font-weight:600;">手机号码</div>
+              <span class="info">19318255405</span>
+            </div>
+          </a>
+          <div class="contact-link">
+            <span class="icon icon-github">🏫</span>
+            <div>
+              <div style="font-size:14px;font-weight:600;">学校</div>
+              <span class="info">湘潭理工学院 · 计算机科学与技术</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">© 2026 邓才增 · 湘潭理工学院</div>
+
   </div>
-</header>
 
-<div class="container">
+  <!-- 回到顶部 -->
+  <button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
 
-  <!-- Hero -->
-  <section class="hero reveal" id="hero">
-    <div class="avatar"><img src="个人简介头像.jpg" alt="邓才增"></div>
-    <h1>邓才增</h1>
-    <p class="tagline">湘潭理工学院 · 计算机科学与技术 · 2026 届本科</p>
-    <p class="admission-line">长沙理工大学 2026 级计算机技术硕士研究生</p>
-    <p class="location">湖南 · 长沙</p>
-  </section>
+  <script>
+    // ==================== 粒子网络背景 ====================
+    (function ()
+    {
+      const canvas = document.getElementById('particle-canvas');
+      const ctx = canvas.getContext('2d');
+      let w, h, particles = [];
+      const PARTICLE_COUNT = 80;
+      const CONNECT_DIST = 140;
 
-  <!-- 自我介绍 -->
-  <section class="card reveal" id="about">
-    <h2>自我介绍</h2>
-    <p class="subtitle">About Me</p>
-    <p class="intro-text">
-      我是湘潭理工学院计算机科学与技术专业 2026 届毕业生，<strong>专业综合排名前 2%（6/285）</strong>，
-      平均成绩 <strong>86.75 分</strong>，GPA <strong>3.55/4.0</strong>。
-      具备扎实的计算机基础，熟练掌握 <strong>Java、C、Python、JavaScript</strong> 等编程语言，
-      在 Web 全栈开发、嵌入式/IoT 系统方面有实际项目经验。
-    </p>
-    <p class="intro-text" style="margin-top:12px;">
-      我热爱技术，具备<strong>独立文献调研、系统设计与代码实现</strong>的完整科研能力。
-      <span class="admission">长沙理工大学 2026 级计算机技术专业硕士研究生</span>，
-      即将在研究生阶段继续深耕计算机领域，将理论创新与实际应用相结合。
-    </p>
-  </section>
+      function resize ()
+      {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener('resize', () => { resize(); initParticles(); });
 
-  <!-- 研究方向 -->
-  <section class="card reveal" id="research">
-    <h2>研究方向</h2>
-    <p class="subtitle">Research Interests</p>
-    <div class="research-grid">
-      <div class="research-item">
-        <span class="r-icon">🔌</span>
-        <span class="r-name">嵌入式开发</span>
-        <span class="r-desc">ARM / IoT / 实时系统</span>
-      </div>
-      <div class="research-item">
-        <span class="r-icon">🤖</span>
-        <span class="r-name">人工智能</span>
-        <span class="r-desc">机器学习 / 深度学习</span>
-      </div>
-      <div class="research-item">
-        <span class="r-icon">👁</span>
-        <span class="r-name">计算机视觉</span>
-        <span class="r-desc">图像识别 / 目标检测</span>
-      </div>
-      <div class="research-item">
-        <span class="r-icon">🧠</span>
-        <span class="r-name">AI大模型开发</span>
-        <span class="r-desc">LLM / 模型微调与应用</span>
-      </div>
-      <div class="research-item">
-        <span class="r-icon">💧</span>
-        <span class="r-name">智慧水利交叉研究</span>
-        <span class="r-desc">计算机 + 水利工程交叉</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- 教育背景 -->
-  <section class="card reveal">
-    <h2>教育背景</h2>
-    <p class="subtitle">Education</p>
-    <div class="stats">
-      <div class="stat-item">
-        <div class="num"><span class="count-up" data-target="2">0</span>%</div>
-        <div class="label">专业排名（6/285）</div>
-      </div>
-      <div class="stat-item">
-        <div class="num"><span class="count-up" data-target="1">0</span>%</div>
-        <div class="label">综测排名（3/285）</div>
-      </div>
-      <div class="stat-item">
-        <div class="num"><span class="count-up" data-target="86.75" data-decimals="2">0</span></div>
-        <div class="label">平均成绩</div>
-      </div>
-      <div class="stat-item">
-        <div class="num"><span class="count-up" data-target="3.55" data-decimals="2">0</span></div>
-        <div class="label">GPA / 4.0</div>
-      </div>
-    </div>
-    <p class="intro-text">
-      核心课程：数据结构、C 语言程序设计、计算机组成原理、操作系统、计算机网络、数据库原理、
-      Java SSM 开发、Python 基础、Linux 操作系统、高等数学、线性代数、概率论等（专业课成绩优秀）
-    </p>
-  </section>
-
-  <!-- 初试成绩 -->
-  <section class="card reveal">
-    <h2>初试成绩</h2>
-    <p class="subtitle">Postgraduate Entrance Exam</p>
-    <div class="exam-grid">
-      <div class="exam-item">
-        <div class="score"><span class="count-up" data-target="303">0</span></div>
-        <div class="exam-label">总分</div>
-      </div>
-      <div class="exam-item">
-        <div class="score"><span class="count-up" data-target="108">0</span></div>
-        <div class="exam-label">数学</div>
-      </div>
-      <div class="exam-item">
-        <div class="score"><span class="count-up" data-target="74">0</span></div>
-        <div class="exam-label">英语</div>
-      </div>
-      <div class="exam-item">
-        <div class="score"><span class="count-up" data-target="62">0</span></div>
-        <div class="exam-label">政治</div>
-      </div>
-      <div class="exam-item">
-        <div class="score"><span class="count-up" data-target="59">0</span></div>
-        <div class="exam-label">计算机基础</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 技术能力 -->
-  <section class="card reveal" id="skills">
-    <h2>技术能力</h2>
-    <p class="subtitle">Skills & Proficiency</p>
-    <div class="skill-bars">
-      <div class="skill-bar-item">
-        <div class="skill-info"><span class="skill-name">Java / SSM</span><span class="skill-pct">85%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="85"></div></div>
-      </div>
-      <div class="skill-bar-item">
-        <div class="skill-info"><span class="skill-name">Spring Boot</span><span class="skill-pct">80%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="80"></div></div>
-      </div>
-      <div class="skill-bar-item">
-        <div class="skill-info"><span class="skill-name">数据结构与算法</span><span class="skill-pct">85%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="85"></div></div>
-      </div>
-      <div class="skill-bar-item">
-        <div class="skill-info"><span class="skill-name">MySQL 数据库</span><span class="skill-pct">82%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="82"></div></div>
-      </div>
-      <div class="skill-bar-item">
-        <div class="skill-info"><span class="skill-name">C 语言</span><span class="skill-pct">80%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="80"></div></div>
-      </div>
-      <div class="skill-bar-item">
-        <div class="skill-info"><span class="skill-name">JavaScript</span><span class="skill-pct">75%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="75"></div></div>
-      </div>
-      <div class="skill-bar-item">
-        <div class="skill-info"><span class="skill-name">Python</span><span class="skill-pct">70%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="70"></div></div>
-      </div>
-      <div class="skill-bar-item">
-        <div class="skill-info"><span class="skill-name">Linux</span><span class="skill-pct">68%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="68"></div></div>
-      </div>
-      <div class="skill-bar-item">
-        <div class="skill-info"><span class="skill-name">嵌入式 / IoT</span><span class="skill-pct">65%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="65"></div></div>
-      </div>
-      <div class="skill-bar-item">
-        <div class="skill-info"><span class="skill-name">MATLAB</span><span class="skill-pct">60%</span></div>
-        <div class="bar-track"><div class="bar-fill" data-width="60"></div></div>
-      </div>
-    </div>
-    <!-- 其他技能标签 -->
-    <div class="tags" style="margin-top:24px;">
-      <span class="tag">RESTful API</span>
-      <span class="tag">MQTT</span>
-      <span class="tag">Git / GitHub</span>
-      <span class="tag">SPSS</span>
-      <span class="tag">微信小程序</span>
-      <span class="tag">ARM 平台</span>
-    </div>
-  </section>
-
-  <!-- 项目经历 -->
-  <section class="card reveal" id="projects">
-    <h2>科研与项目经历</h2>
-    <p class="subtitle">Projects</p>
-
-    <div class="timeline-item">
-      <div class="year">2025.10 — 2026.02</div>
-      <h4>基于 Spring Boot 的水果商城管理系统（毕业设计 · 全栈独立完成）</h4>
-      <p>针对传统水果零售痛点，设计支持商品全生命周期管理、高并发订单处理与角色权限控制的 Web 系统</p>
-      <p class="detail">
-        独立完成需求分析、数据库设计（MySQL + 索引优化）、后端开发（Spring Boot + RESTful API）、
-        前端实现；引入 RBAC 权限模型，采用乐观锁/分布式锁保障高并发一致性；实现商品、订单、人员
-        三大核心模块完整闭环
-      </p>
-    </div>
-
-    <div class="timeline-item">
-      <div class="year">2025.10</div>
-      <h4>基于 ARM 平台的智能家居系统开发（团队核心成员）</h4>
-      <p>面向物联网场景的嵌入式智能家居控制系统，支持语音交互与多设备联动</p>
-      <p class="detail">
-        负责语音指令识别模块（开源语音识别接口 + 关键词匹配优化）、设备联动控制逻辑设计、
-        系统扩展接口开发（REST API + MQTT 协议）；实现语音到设备的端到端控制流程
-      </p>
-    </div>
-
-    <div class="timeline-item">
-      <div class="year">2024.06</div>
-      <h4>"智润湘农"——基于 AIoT 技术的数字农业系统（省级立项 · 前端负责人）</h4>
-      <p>针对农业病虫害监测与设备远程控制需求，开发 AIoT + 小程序一体化平台</p>
-      <p class="detail">
-        负责微信小程序前端开发，实现病害虫图像采集上传、实时环境参数显示、设备远程控制；
-        项目获<strong>湘潭市青年大创比赛金奖（省级）</strong>
-      </p>
-    </div>
-  </section>
-
-  <!-- 竞赛获奖 -->
-  <section class="card reveal" id="awards">
-    <h2>学科竞赛与荣誉</h2>
-    <p class="subtitle">Awards & Honors · 悬停卡片查看详情</p>
-    <div class="award-grid-3d">
-      <div class="award-card gold">
-        <div class="award-inner">
-          <div class="award-front">
-            <span class="award-icon">🥇</span>
-            <span class="award-name">湘潭市青年大创比赛</span>
-            <span class="award-level">省级金奖</span>
-          </div>
-          <div class="award-back">
-            <span class="award-year">2024</span>
-            <span class="award-detail">"智润湘农" AIoT 数字农业项目<br>省级立项 · 前端负责人</span>
-          </div>
-        </div>
-      </div>
-      <div class="award-card gold">
-        <div class="award-inner">
-          <div class="award-front">
-            <span class="award-icon">🥇</span>
-            <span class="award-name">全国大学生英语竞赛</span>
-            <span class="award-level">省级一等奖</span>
-          </div>
-          <div class="award-back">
-            <span class="award-year">2023</span>
-            <span class="award-detail">全国大学生英语竞赛<br>省级一等奖</span>
-          </div>
-        </div>
-      </div>
-      <div class="award-card bronze">
-        <div class="award-inner">
-          <div class="award-front">
-            <span class="award-icon">🥉</span>
-            <span class="award-name">湖南省大学生数学竞赛</span>
-            <span class="award-level">省级三等奖</span>
-          </div>
-          <div class="award-back">
-            <span class="award-year">2025</span>
-            <span class="award-detail">湖南省大学生数学竞赛<br>省级三等奖</span>
-          </div>
-        </div>
-      </div>
-      <div class="award-card silver">
-        <div class="award-inner">
-          <div class="award-front">
-            <span class="award-icon">🥈</span>
-            <span class="award-name">湘潭理工学院数学竞赛</span>
-            <span class="award-level">校级二等奖 ×2</span>
-          </div>
-          <div class="award-back">
-            <span class="award-year">2023 · 2024</span>
-            <span class="award-detail">连续两年获得<br>校级数学竞赛二等奖</span>
-          </div>
-        </div>
-      </div>
-      <div class="award-card silver">
-        <div class="award-inner">
-          <div class="award-front">
-            <span class="award-icon">🥈</span>
-            <span class="award-name">数学建模校赛</span>
-            <span class="award-level">校级二等奖</span>
-          </div>
-          <div class="award-back">
-            <span class="award-year">2024</span>
-            <span class="award-detail">数学建模校赛<br>二等奖</span>
-          </div>
-        </div>
-      </div>
-      <div class="award-card gold">
-        <div class="award-inner">
-          <div class="award-front">
-            <span class="award-icon">🥇</span>
-            <span class="award-name">"互联网+" 创新创业大赛</span>
-            <span class="award-level">校级一等奖</span>
-          </div>
-          <div class="award-back">
-            <span class="award-year">2024</span>
-            <span class="award-detail">"互联网+" 大学生创新创业大赛<br>高教主赛道 校级一等奖</span>
-          </div>
-        </div>
-      </div>
-      <div class="award-card bronze">
-        <div class="award-inner">
-          <div class="award-front">
-            <span class="award-icon">🥉</span>
-            <span class="award-name">外研社国才杯</span>
-            <span class="award-level">校级铜奖</span>
-          </div>
-          <div class="award-back">
-            <span class="award-year">2024</span>
-            <span class="award-detail">英语综合/演讲赛项<br>校级铜奖</span>
-          </div>
-        </div>
-      </div>
-      <div class="award-card silver">
-        <div class="award-inner">
-          <div class="award-front">
-            <span class="award-icon">🏅</span>
-            <span class="award-name">优秀学生干部 · 优秀共青团员</span>
-            <span class="award-level">校级荣誉</span>
-          </div>
-          <div class="award-back">
-            <span class="award-year">2023 - 2024</span>
-            <span class="award-detail">科创部副部长期间<br>获多项校级荣誉称号</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 校园经历 -->
-  <section class="card reveal">
-    <h2>校园经历</h2>
-    <p class="subtitle">Campus Activities</p>
-    <div class="timeline-item">
-      <div class="year">2023.09 — 2024.09</div>
-      <h4>数字科技学院科创部 · 副部长</h4>
-      <p>主导策划多场学科竞赛与科创活动，负责统筹协调、资源整合与活动执行，提升同学科研参与度</p>
-    </div>
-  </section>
-
-  <!-- 考研经验 -->
-  <section class="card reveal">
-    <h2>考研经验</h2>
-    <p class="subtitle">408 Exam & Interview Experience</p>
-    <p class="intro-text">
-      408 计算机考研总分 <strong>303</strong>，已上岸长沙理工大学计算机技术硕士。
-      备考期间系统整理了 408 四门专业课复习策略、时间线规划及复试面试经验，希望帮助到同样在路上的同学。
-    </p>
-    <a class="exp-link" href="#" target="_blank">
-      阅读全文 →
-    </a>
-  </section>
-
-  <!-- 联系方式 -->
-  <section class="card reveal" id="contact">
-    <h2>联系方式</h2>
-    <p class="subtitle">Contact</p>
-    <div class="contact-grid">
-      <div class="qr-box">
-        <div class="qr-wrapper">
-          <img src="微信二维码.png" alt="微信二维码" width="144" height="144">
-        </div>
-        <span>微信扫一扫添加好友</span>
-      </div>
-      <div class="contact-links">
-        <a class="contact-link" href="mailto:334478121@qq.com">
-          <span class="icon icon-email">✉</span>
-          <div>
-            <div style="font-size:14px;font-weight:600;">电子邮箱</div>
-            <span class="info">334478121@qq.com</span>
-          </div>
-        </a>
-        <a class="contact-link" href="tel:19318255405">
-          <span class="icon icon-phone">📞</span>
-          <div>
-            <div style="font-size:14px;font-weight:600;">手机号码</div>
-            <span class="info">19318255405</span>
-          </div>
-        </a>
-        <div class="contact-link">
-          <span class="icon icon-github">🏫</span>
-          <div>
-            <div style="font-size:14px;font-weight:600;">学校</div>
-            <span class="info">湘潭理工学院 · 计算机科学与技术</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="footer">© 2026 邓才增 · 湘潭理工学院</div>
-
-</div>
-
-<!-- 回到顶部 -->
-<button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
-
-<script>
-// ==================== 粒子网络背景 ====================
-(function() {
-  const canvas = document.getElementById('particle-canvas');
-  const ctx = canvas.getContext('2d');
-  let w, h, particles = [];
-  const PARTICLE_COUNT = 80;
-  const CONNECT_DIST = 140;
-
-  function resize() {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', () => { resize(); initParticles(); });
-
-  function initParticles() {
-    particles = [];
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-      particles.push({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        r: Math.random() * 2 + 1
-      });
-    }
-  }
-  initParticles();
-
-  function draw() {
-    ctx.clearRect(0, 0, w, h);
-    for (let i = 0; i < particles.length; i++) {
-      const p = particles[i];
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
-      if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(56,189,248,0.5)';
-      ctx.fill();
-      for (let j = i + 1; j < particles.length; j++) {
-        const q = particles[j];
-        const dx = p.x - q.x, dy = p.y - q.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < CONNECT_DIST) {
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(q.x, q.y);
-          ctx.strokeStyle = `rgba(56,189,248,${0.12 * (1 - dist / CONNECT_DIST)})`;
-          ctx.lineWidth = 0.6;
-          ctx.stroke();
+      function initParticles ()
+      {
+        particles = [];
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+          particles.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+            r: Math.random() * 2 + 1
+          });
         }
       }
-    }
-    requestAnimationFrame(draw);
-  }
-  draw();
-})();
+      initParticles();
 
-// ==================== 鼠标光晕 ====================
-(function() {
-  const glow = document.getElementById('cursorGlow');
-  let mx = -500, my = -500, cx = -500, cy = -500;
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-  function follow() {
-    cx += (mx - cx) * 0.08; cy += (my - cy) * 0.08;
-    glow.style.left = cx + 'px'; glow.style.top = cy + 'px';
-    requestAnimationFrame(follow);
-  }
-  follow();
-})();
+      function draw ()
+      {
+        ctx.clearRect(0, 0, w, h);
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+          if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(56,189,248,0.5)';
+          ctx.fill();
+          for (let j = i + 1; j < particles.length; j++) {
+            const q = particles[j];
+            const dx = p.x - q.x, dy = p.y - q.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < CONNECT_DIST) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(q.x, q.y);
+              ctx.strokeStyle = `rgba(56,189,248,${0.12 * (1 - dist / CONNECT_DIST)})`;
+              ctx.lineWidth = 0.6;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
 
-// ==================== 滚动显示 + 数字滚动 + 进度条动画 ====================
-(function() {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        entry.target.querySelectorAll('.count-up').forEach(startCount);
-        entry.target.querySelectorAll('.bar-fill').forEach(el => {
-          el.style.width = el.dataset.width + '%';
+    // ==================== 鼠标光晕 ====================
+    (function ()
+    {
+      const glow = document.getElementById('cursorGlow');
+      let mx = -500, my = -500, cx = -500, cy = -500;
+      document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+      function follow ()
+      {
+        cx += (mx - cx) * 0.08; cy += (my - cy) * 0.08;
+        glow.style.left = cx + 'px'; glow.style.top = cy + 'px';
+        requestAnimationFrame(follow);
+      }
+      follow();
+    })();
+
+    // ==================== 滚动显示 + 数字滚动 + 进度条动画 ====================
+    (function ()
+    {
+      const observer = new IntersectionObserver((entries) =>
+      {
+        entries.forEach(entry =>
+        {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            entry.target.querySelectorAll('.count-up').forEach(startCount);
+            entry.target.querySelectorAll('.bar-fill').forEach(el =>
+            {
+              el.style.width = el.dataset.width + '%';
+            });
+          }
         });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      function startCount (el)
+      {
+        if (el.dataset.counting) return;
+        el.dataset.counting = '1';
+        const target = parseFloat(el.dataset.target);
+        const decimals = parseInt(el.dataset.decimals) || 0;
+        const duration = 1400;
+        const start = performance.now();
+        function update (now)
+        {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = (target * eased).toFixed(decimals);
+          if (progress < 1) requestAnimationFrame(update);
+          else el.textContent = target.toFixed(decimals);
+        }
+        requestAnimationFrame(update);
       }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    })();
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // ==================== 滚动导航高亮 + 固定吸附 ====================
+    (function ()
+    {
+      const navHeader = document.getElementById('navHeader');
+      const navLinks = document.querySelectorAll('.nav a');
 
-  function startCount(el) {
-    if (el.dataset.counting) return;
-    el.dataset.counting = '1';
-    const target = parseFloat(el.dataset.target);
-    const decimals = parseInt(el.dataset.decimals) || 0;
-    const duration = 1400;
-    const start = performance.now();
-    function update(now) {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = (target * eased).toFixed(decimals);
-      if (progress < 1) requestAnimationFrame(update);
-      else el.textContent = target.toFixed(decimals);
-    }
-    requestAnimationFrame(update);
-  }
-})();
+      // 只收集导航中有对应锚点的 section/card
+      const linkIds = Array.from(navLinks).map(a => a.getAttribute('href').slice(1));
+      const sections = linkIds
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
 
-// ==================== 滚动导航高亮 + 固定吸附 ====================
-(function() {
-  const navHeader = document.getElementById('navHeader');
-  const navLinks = document.querySelectorAll('.nav a');
+      const NAV_OFFSET = 80;
 
-  // 只收集导航中有对应锚点的 section/card
-  const linkIds = Array.from(navLinks).map(a => a.getAttribute('href').slice(1));
-  const sections = linkIds
-    .map(id => document.getElementById(id))
-    .filter(Boolean);
+      function updateActive ()
+      {
+        const scrollTop = window.scrollY;
 
-  const NAV_OFFSET = 80;
+        // --- 导航高亮：找到最后一个顶部已越过阈值线 ---
+        let current = linkIds[0] || '';
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const sec = sections[i];
+          if (sec && sec.getBoundingClientRect().top <= NAV_OFFSET + 30) {
+            current = linkIds[i];
+            break;
+          }
+        }
 
-  function updateActive() {
-    const scrollTop = window.scrollY;
+        navLinks.forEach(a =>
+        {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+        });
 
-    // --- 导航高亮：找到最后一个顶部已越过阈值线 ---
-    let current = linkIds[0] || '';
-    for (let i = sections.length - 1; i >= 0; i--) {
-      const sec = sections[i];
-      if (sec && sec.getBoundingClientRect().top <= NAV_OFFSET + 30) {
-        current = linkIds[i];
-        break;
+        // --- 固定吸附背景：滚过 200px 后显示毛玻璃 ---
+        if (scrollTop > 200) {
+          navHeader.classList.add('sticky');
+        } else {
+          navHeader.classList.remove('sticky');
+        }
       }
-    }
 
-    navLinks.forEach(a => {
-      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-    });
+      // 点击导航链接：立即高亮，并短暂锁定防止滚动中途被覆盖
+      let clickLock = 0;
+      navLinks.forEach(a =>
+      {
+        a.addEventListener('click', () =>
+        {
+          navLinks.forEach(l => l.classList.remove('active'));
+          a.classList.add('active');
+          clickLock = Date.now();
+        });
+      });
 
-    // --- 固定吸附背景：滚过 200px 后显示毛玻璃 ---
-    if (scrollTop > 200) {
-      navHeader.classList.add('sticky');
-    } else {
-      navHeader.classList.remove('sticky');
-    }
-  }
+      function updateActiveSafe ()
+      {
+        if (Date.now() - clickLock < 800) return; // 点击后 800ms 内跳过 scroll 更新
+        updateActive();
+      }
 
-  // 点击导航链接：立即高亮，并短暂锁定防止滚动中途被覆盖
-  let clickLock = 0;
-  navLinks.forEach(a => {
-    a.addEventListener('click', () => {
-      navLinks.forEach(l => l.classList.remove('active'));
-      a.classList.add('active');
-      clickLock = Date.now();
-    });
-  });
+      // 初次执行 + 滚动监听
+      updateActive();
+      window.addEventListener('scroll', updateActiveSafe, { passive: true });
+    })();
 
-  function updateActiveSafe() {
-    if (Date.now() - clickLock < 800) return; // 点击后 800ms 内跳过 scroll 更新
-    updateActive();
-  }
+    // ==================== 回到顶部 ====================
+    (function ()
+    {
+      const btn = document.getElementById('backToTop');
+      window.addEventListener('scroll', () =>
+      {
+        btn.classList.toggle('show', window.scrollY > 500);
+      }, { passive: true });
+      btn.addEventListener('click', () =>
+      {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
 
-  // 初次执行 + 滚动监听
-  updateActive();
-  window.addEventListener('scroll', updateActiveSafe, { passive: true });
-})();
+    // ==================== 移动端汉堡菜单 ====================
+    (function ()
+    {
+      const btn = document.getElementById('hamburger');
+      const nav = document.getElementById('navbar');
+      const overlay = document.getElementById('navOverlay');
 
-// ==================== 回到顶部 ====================
-(function() {
-  const btn = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    btn.classList.toggle('show', window.scrollY > 500);
-  }, { passive: true });
-  btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-})();
+      function closeMenu ()
+      {
+        btn.classList.remove('open');
+        nav.classList.remove('open');
+        overlay.classList.remove('show');
+        document.body.style.overflow = '';
+      }
 
-// ==================== 移动端汉堡菜单 ====================
-(function() {
-  const btn = document.getElementById('hamburger');
-  const nav = document.getElementById('navbar');
-  const overlay = document.getElementById('navOverlay');
+      btn.addEventListener('click', () =>
+      {
+        const isOpen = nav.classList.contains('open');
+        if (isOpen) {
+          closeMenu();
+        } else {
+          btn.classList.add('open');
+          nav.classList.add('open');
+          overlay.classList.add('show');
+          document.body.style.overflow = 'hidden';
+        }
+      });
 
-  function closeMenu() {
-    btn.classList.remove('open');
-    nav.classList.remove('open');
-    overlay.classList.remove('show');
-    document.body.style.overflow = '';
-  }
+      overlay.addEventListener('click', closeMenu);
 
-  btn.addEventListener('click', () => {
-    const isOpen = nav.classList.contains('open');
-    if (isOpen) {
-      closeMenu();
-    } else {
-      btn.classList.add('open');
-      nav.classList.add('open');
-      overlay.classList.add('show');
-      document.body.style.overflow = 'hidden';
-    }
-  });
-
-  overlay.addEventListener('click', closeMenu);
-
-  nav.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', closeMenu);
-  });
-})();
-</script>
+      nav.querySelectorAll('a').forEach(a =>
+      {
+        a.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
 
 </body>
+
 </html>
