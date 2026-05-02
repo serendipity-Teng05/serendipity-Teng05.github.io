@@ -97,9 +97,11 @@ body {
 .nav {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 36px;
   padding: 24px 0;
   font-size: 14px;
+  position: relative;
 }
 .nav a {
   color: var(--text-muted);
@@ -116,8 +118,59 @@ body {
   background: linear-gradient(90deg, var(--accent), var(--accent3));
   transition: width 0.3s ease;
 }
-.nav a:hover { color: #fff; }
-.nav a:hover::after { width: 100%; }
+.nav a:hover,
+.nav a.active { color: #fff; }
+.nav a.active::after { width: 100%; }
+
+/* 汉堡菜单 */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 100;
+  position: absolute;
+  right: 0;
+  top: 20px;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav {
+    position: fixed;
+    top: 0; right: -100%;
+    width: 240px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    background: rgba(7, 11, 20, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-left: 1px solid var(--border);
+    transition: right 0.35s ease;
+    z-index: 99;
+    padding: 0;
+    font-size: 16px;
+  }
+  .nav.open { right: 0; }
+  .nav a { padding: 8px 0; }
+}
 
 /* ============ Hero ============ */
 .hero {
@@ -256,6 +309,103 @@ body {
   bottom: -2px; left: 0; right: 0;
   height: 2px;
   background: linear-gradient(90deg, transparent, #f87171, transparent);
+}
+
+/* ============ 研究方向 ============ */
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+@media (max-width: 900px) {
+  .research-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 540px) {
+  .research-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.research-item {
+  text-align: center;
+  padding: 24px 14px 20px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--glass);
+  transition: all 0.4s;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+.research-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(56,189,248,0.06), rgba(167,139,250,0.04));
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.research-item:hover {
+  border-color: rgba(56,189,248,0.35);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+}
+.research-item:hover::before { opacity: 1; }
+.research-item .r-icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+  display: block;
+  transition: transform 0.4s;
+}
+.research-item:hover .r-icon { transform: scale(1.2); }
+.research-item .r-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+}
+.research-item .r-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 6px;
+  opacity: 0;
+  max-height: 0;
+  transition: all 0.4s;
+  overflow: hidden;
+}
+.research-item:hover .r-desc {
+  opacity: 1;
+  max-height: 40px;
+}
+
+/* ============ 技能进度条 ============ */
+.skill-bars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 40px;
+}
+@media (max-width: 600px) {
+  .skill-bars { grid-template-columns: 1fr; }
+}
+.skill-bar-item { }
+.skill-bar-item .skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+.skill-bar-item .skill-name { color: var(--text); font-weight: 500; }
+.skill-bar-item .skill-pct { color: var(--accent); font-weight: 600; }
+.skill-bar-item .bar-track {
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.05);
+  overflow: hidden;
+}
+.skill-bar-item .bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent3));
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ============ 统计卡片 ============ */
@@ -594,6 +744,52 @@ body {
 .icon-github { background: rgba(167,139,250,0.12); color: var(--accent2); }
 .icon-phone { background: rgba(34,211,238,0.12); color: var(--accent3); }
 .contact-link .info { font-size: 13px; color: var(--text-muted); }
+
+/* ============ 回到顶部 ============ */
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-muted);
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 50;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: all 0.35s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.back-to-top.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.back-to-top:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 4px 20px rgba(56,189,248,0.2);
+  transform: translateY(-3px);
+}
+
+/* ============ 导航遮罩 ============ */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 98;
+}
+.nav-overlay.show { display: block; }
 
 /* ============ 页脚 ============ */
 .footer {

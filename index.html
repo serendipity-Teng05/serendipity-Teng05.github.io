@@ -8,34 +8,40 @@
 </head>
 <body>
 
-<!-- 粒子画布 -->
 <canvas id="particle-canvas"></canvas>
 
-<!-- 流动光晕 -->
 <div class="flow-orb o1"></div>
 <div class="flow-orb o2"></div>
 <div class="flow-orb o3"></div>
-
-<!-- 鼠标光晕 -->
 <div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- 导航遮罩(移动端) -->
+<div class="nav-overlay" id="navOverlay"></div>
 
 <div class="container">
 
   <!-- 导航 -->
-  <nav class="nav reveal">
+  <nav class="nav reveal" id="navbar">
     <a href="#about">关于我</a>
+    <a href="#research">研究方向</a>
+    <a href="#skills">技术能力</a>
     <a href="#projects">项目经历</a>
     <a href="#awards">竞赛获奖</a>
     <a href="#contact">联系方式</a>
   </nav>
 
+  <!-- 汉堡菜单 -->
+  <button class="hamburger" id="hamburger" aria-label="菜单">
+    <span></span><span></span><span></span>
+  </button>
+
   <!-- Hero -->
-  <section class="hero reveal">
+  <section class="hero reveal" id="hero">
     <div class="avatar"><img src="个人简介头像.jpg" alt="邓才增"></div>
     <h1>邓才增</h1>
     <p class="tagline">湘潭理工学院 · 计算机科学与技术 · 2026 届本科</p>
     <p class="admission-line">长沙理工大学 2026 级计算机技术硕士研究生</p>
-    <p class="location">📍 湖南 · 长沙</p>
+    <p class="location">湖南 · 长沙</p>
   </section>
 
   <!-- 自我介绍 -->
@@ -53,6 +59,39 @@
       <span class="admission">长沙理工大学 2026 级计算机技术专业硕士研究生</span>，
       即将在研究生阶段继续深耕计算机领域，将理论创新与实际应用相结合。
     </p>
+  </section>
+
+  <!-- 研究方向 -->
+  <section class="card reveal" id="research">
+    <h2>研究方向</h2>
+    <p class="subtitle">Research Interests</p>
+    <div class="research-grid">
+      <div class="research-item">
+        <span class="r-icon">🔌</span>
+        <span class="r-name">嵌入式开发</span>
+        <span class="r-desc">ARM / IoT / 实时系统</span>
+      </div>
+      <div class="research-item">
+        <span class="r-icon">🤖</span>
+        <span class="r-name">人工智能</span>
+        <span class="r-desc">机器学习 / 深度学习</span>
+      </div>
+      <div class="research-item">
+        <span class="r-icon">👁</span>
+        <span class="r-name">计算机视觉</span>
+        <span class="r-desc">图像识别 / 目标检测</span>
+      </div>
+      <div class="research-item">
+        <span class="r-icon">🧠</span>
+        <span class="r-name">AI大模型开发</span>
+        <span class="r-desc">LLM / 模型微调与应用</span>
+      </div>
+      <div class="research-item">
+        <span class="r-icon">💧</span>
+        <span class="r-name">智慧水利交叉研究</span>
+        <span class="r-desc">计算机 + 水利工程交叉</span>
+      </div>
+    </div>
   </section>
 
   <!-- 教育背景 -->
@@ -111,27 +150,60 @@
     </div>
   </section>
 
-  <!-- 技术栈 -->
-  <section class="card reveal">
-    <h2>技术栈</h2>
-    <p class="subtitle">Tech Stack</p>
-    <div class="tags">
-      <span class="tag highlight">Java / SSM</span>
-      <span class="tag highlight">Spring Boot</span>
-      <span class="tag highlight">C 语言</span>
-      <span class="tag highlight">Python</span>
-      <span class="tag highlight">JavaScript</span>
-      <span class="tag highlight">MySQL</span>
-      <span class="tag">数据结构与算法</span>
-      <span class="tag">Linux</span>
+  <!-- 技术能力 -->
+  <section class="card reveal" id="skills">
+    <h2>技术能力</h2>
+    <p class="subtitle">Skills & Proficiency</p>
+    <div class="skill-bars">
+      <div class="skill-bar-item">
+        <div class="skill-info"><span class="skill-name">Java / SSM</span><span class="skill-pct">85%</span></div>
+        <div class="bar-track"><div class="bar-fill" data-width="85"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-info"><span class="skill-name">Spring Boot</span><span class="skill-pct">80%</span></div>
+        <div class="bar-track"><div class="bar-fill" data-width="80"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-info"><span class="skill-name">数据结构与算法</span><span class="skill-pct">85%</span></div>
+        <div class="bar-track"><div class="bar-fill" data-width="85"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-info"><span class="skill-name">MySQL 数据库</span><span class="skill-pct">82%</span></div>
+        <div class="bar-track"><div class="bar-fill" data-width="82"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-info"><span class="skill-name">C 语言</span><span class="skill-pct">80%</span></div>
+        <div class="bar-track"><div class="bar-fill" data-width="80"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-info"><span class="skill-name">JavaScript</span><span class="skill-pct">75%</span></div>
+        <div class="bar-track"><div class="bar-fill" data-width="75"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-info"><span class="skill-name">Python</span><span class="skill-pct">70%</span></div>
+        <div class="bar-track"><div class="bar-fill" data-width="70"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-info"><span class="skill-name">Linux</span><span class="skill-pct">68%</span></div>
+        <div class="bar-track"><div class="bar-fill" data-width="68"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-info"><span class="skill-name">嵌入式 / IoT</span><span class="skill-pct">65%</span></div>
+        <div class="bar-track"><div class="bar-fill" data-width="65"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-info"><span class="skill-name">MATLAB</span><span class="skill-pct">60%</span></div>
+        <div class="bar-track"><div class="bar-fill" data-width="60"></div></div>
+      </div>
+    </div>
+    <!-- 其他技能标签 -->
+    <div class="tags" style="margin-top:24px;">
       <span class="tag">RESTful API</span>
-      <span class="tag">MATLAB</span>
-      <span class="tag">嵌入式/IoT</span>
-      <span class="tag">ARM 平台</span>
       <span class="tag">MQTT</span>
       <span class="tag">Git / GitHub</span>
       <span class="tag">SPSS</span>
       <span class="tag">微信小程序</span>
+      <span class="tag">ARM 平台</span>
     </div>
   </section>
 
@@ -172,12 +244,11 @@
     </div>
   </section>
 
-  <!-- 竞赛获奖 - 3D 翻转 -->
+  <!-- 竞赛获奖 -->
   <section class="card reveal" id="awards">
     <h2>学科竞赛与荣誉</h2>
     <p class="subtitle">Awards & Honors · 悬停卡片查看详情</p>
     <div class="award-grid-3d">
-      <!-- 金奖 #1 -->
       <div class="award-card gold">
         <div class="award-inner">
           <div class="award-front">
@@ -191,7 +262,6 @@
           </div>
         </div>
       </div>
-      <!-- 金奖 #2 -->
       <div class="award-card gold">
         <div class="award-inner">
           <div class="award-front">
@@ -205,7 +275,6 @@
           </div>
         </div>
       </div>
-      <!-- 铜奖 -->
       <div class="award-card bronze">
         <div class="award-inner">
           <div class="award-front">
@@ -219,7 +288,6 @@
           </div>
         </div>
       </div>
-      <!-- 银奖 #1 -->
       <div class="award-card silver">
         <div class="award-inner">
           <div class="award-front">
@@ -233,7 +301,6 @@
           </div>
         </div>
       </div>
-      <!-- 银奖 #2 -->
       <div class="award-card silver">
         <div class="award-inner">
           <div class="award-front">
@@ -247,7 +314,6 @@
           </div>
         </div>
       </div>
-      <!-- 金奖 #3 -->
       <div class="award-card gold">
         <div class="award-inner">
           <div class="award-front">
@@ -261,7 +327,6 @@
           </div>
         </div>
       </div>
-      <!-- 铜奖 #2 -->
       <div class="award-card bronze">
         <div class="award-inner">
           <div class="award-front">
@@ -275,7 +340,6 @@
           </div>
         </div>
       </div>
-      <!-- 荣誉 -->
       <div class="award-card silver">
         <div class="award-inner">
           <div class="award-front">
@@ -344,6 +408,9 @@
 
 </div>
 
+<!-- 回到顶部 -->
+<button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
 <script>
 // ==================== 粒子网络背景 ====================
 (function() {
@@ -358,10 +425,7 @@
     h = canvas.height = window.innerHeight;
   }
   resize();
-  window.addEventListener('resize', () => {
-    resize();
-    initParticles();
-  });
+  window.addEventListener('resize', () => { resize(); initParticles(); });
 
   function initParticles() {
     particles = [];
@@ -379,28 +443,18 @@
 
   function draw() {
     ctx.clearRect(0, 0, w, h);
-
-    // 更新 & 绘制粒子
     for (let i = 0; i < particles.length; i++) {
       const p = particles[i];
-      p.x += p.vx;
-      p.y += p.vy;
-
-      if (p.x < 0) p.x = w;
-      if (p.x > w) p.x = 0;
-      if (p.y < 0) p.y = h;
-      if (p.y > h) p.y = 0;
-
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+      if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = 'rgba(56,189,248,0.5)';
       ctx.fill();
-
-      // 连线
       for (let j = i + 1; j < particles.length; j++) {
         const q = particles[j];
-        const dx = p.x - q.x;
-        const dy = p.y - q.y;
+        const dx = p.x - q.x, dy = p.y - q.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < CONNECT_DIST) {
           ctx.beginPath();
@@ -420,40 +474,32 @@
 // ==================== 鼠标光晕 ====================
 (function() {
   const glow = document.getElementById('cursorGlow');
-  let mx = -500, my = -500;
-  let cx = -500, cy = -500;
-
-  document.addEventListener('mousemove', (e) => {
-    mx = e.clientX;
-    my = e.clientY;
-  });
-
+  let mx = -500, my = -500, cx = -500, cy = -500;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
   function follow() {
-    cx += (mx - cx) * 0.08;
-    cy += (my - cy) * 0.08;
-    glow.style.left = cx + 'px';
-    glow.style.top = cy + 'px';
+    cx += (mx - cx) * 0.08; cy += (my - cy) * 0.08;
+    glow.style.left = cx + 'px'; glow.style.top = cy + 'px';
     requestAnimationFrame(follow);
   }
   follow();
 })();
 
-// ==================== 滚动显示动画 ====================
+// ==================== 滚动显示 + 数字滚动 + 进度条动画 ====================
 (function() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        // 触发数字滚动
-        const counters = entry.target.querySelectorAll('.count-up');
-        counters.forEach(c => startCount(c));
+        entry.target.querySelectorAll('.count-up').forEach(startCount);
+        entry.target.querySelectorAll('.bar-fill').forEach(el => {
+          el.style.width = el.dataset.width + '%';
+        });
       }
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // 数字滚动动画
   function startCount(el) {
     if (el.dataset.counting) return;
     el.dataset.counting = '1';
@@ -461,24 +507,80 @@
     const decimals = parseInt(el.dataset.decimals) || 0;
     const duration = 1400;
     const start = performance.now();
-
     function update(now) {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      // ease-out
       const eased = 1 - Math.pow(1 - progress, 3);
-      const current = target * eased;
-      el.textContent = current.toFixed(decimals);
-      if (progress < 1) {
-        requestAnimationFrame(update);
-      } else {
-        el.textContent = target.toFixed(decimals);
-      }
+      el.textContent = (target * eased).toFixed(decimals);
+      if (progress < 1) requestAnimationFrame(update);
+      else el.textContent = target.toFixed(decimals);
     }
     requestAnimationFrame(update);
   }
 })();
 
+// ==================== 滚动导航高亮 ====================
+(function() {
+  const sections = document.querySelectorAll('section[id], .card[id]');
+  const navLinks = document.querySelectorAll('.nav a');
+
+  function updateActive() {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 120) {
+        current = sec.getAttribute('id');
+      }
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+
+  window.addEventListener('scroll', updateActive, { passive: true });
+})();
+
+// ==================== 回到顶部 ====================
+(function() {
+  const btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('show', window.scrollY > 500);
+  }, { passive: true });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+// ==================== 移动端汉堡菜单 ====================
+(function() {
+  const btn = document.getElementById('hamburger');
+  const nav = document.getElementById('navbar');
+  const overlay = document.getElementById('navOverlay');
+
+  function closeMenu() {
+    btn.classList.remove('open');
+    nav.classList.remove('open');
+    overlay.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  btn.addEventListener('click', () => {
+    const isOpen = nav.classList.contains('open');
+    if (isOpen) {
+      closeMenu();
+    } else {
+      btn.classList.add('open');
+      nav.classList.add('open');
+      overlay.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+  });
+
+  overlay.addEventListener('click', closeMenu);
+
+  nav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', closeMenu);
+  });
+})();
 </script>
 
 </body>
