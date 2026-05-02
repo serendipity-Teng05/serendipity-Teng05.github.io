@@ -677,9 +677,21 @@
 
       overlay.addEventListener('click', closeMenu);
 
+      // 点击导航链接：关闭菜单 + 手动滚动到目标（解决 overflow:hidden 阻断滚动）
       nav.querySelectorAll('a').forEach(a =>
       {
-        a.addEventListener('click', closeMenu);
+        a.addEventListener('click', (e) =>
+        {
+          e.preventDefault();
+          closeMenu();
+          const id = a.getAttribute('href').slice(1);
+          const target = document.getElementById(id);
+          if (target) {
+            setTimeout(() => {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+          }
+        });
       });
     })();
   </script>
