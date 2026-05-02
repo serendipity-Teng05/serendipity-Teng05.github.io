@@ -677,19 +677,10 @@
 
       overlay.addEventListener('click', closeMenu);
 
-      // 点击导航链接：先关菜单恢复overflow，再用location.hash触发原生滚动
+      // 在 touchstart 阶段提前关闭菜单，click 事件由浏览器原生处理跳转
       nav.querySelectorAll('a').forEach(a =>
       {
-        a.addEventListener('click', (e) =>
-        {
-          e.preventDefault();
-          const hash = a.getAttribute('href');
-          closeMenu();
-          // 短暂延迟确保 overflow 恢复后再跳转
-          setTimeout(() => {
-            window.location.hash = hash.slice(1);
-          }, 150);
-        });
+        a.addEventListener('touchstart', closeMenu, { passive: true });
       });
     })();
   </script>
