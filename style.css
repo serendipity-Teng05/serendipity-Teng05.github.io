@@ -168,9 +168,19 @@ body {
   background-clip: text;
 }
 .hero .tagline {
-  font-size: 18px;
+  font-size: 16px;
   color: var(--text-muted);
-  margin-bottom: 6px;
+  margin-bottom: 14px;
+}
+.hero .admission-line {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #f87171, #fb923c, #fbbf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.5px;
 }
 .hero .location {
   font-size: 14px;
