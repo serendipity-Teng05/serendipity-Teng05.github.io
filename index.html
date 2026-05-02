@@ -560,6 +560,14 @@
     }
   }
 
+  // 点击导航链接：立即高亮，不等滚动完成
+  navLinks.forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.forEach(l => l.classList.remove('active'));
+      a.classList.add('active');
+    });
+  });
+
   // 初次执行 + 滚动监听
   updateActive();
   window.addEventListener('scroll', updateActive, { passive: true });
